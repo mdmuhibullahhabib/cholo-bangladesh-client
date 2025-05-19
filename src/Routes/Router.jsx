@@ -1,19 +1,126 @@
 import React from "react";
 import { createBrowserRouter } from 'react-router-dom'
+import HomeLayout from "../Layouts/HomeLayout";
+import Login from "../Components/Login";
+import Register from "../Components/Register";
+import AuthLayout from "../Layouts/AuthLayout";
+import Home from "../Pages/Home";
+import Community from "../Pages/Community";
+import AboutUs from "../Pages/AboutUs";
+import Trips from "../Pages/Trips";
+import PackageDetails from "../Pages/PackageDetails";
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layouts/Dashboard";
+import Joinastourguide from "../Pages/Tourist/Joinastourguide";
+import MyBooking from "../Pages/Tourist/MyBooking";
+import Profile from "../Pages/Tourist/Profile";
+import AddStories from "../Pages/Tourist/AddStories";
+import ManageStories from "../Pages/Tourist/ManageStories";
+import AdminProfile from "../Pages/Admin/AdminProfile";
+import ManageCandidates from "../Pages/Admin/ManageCandidates";
+import AddPackage from "../Pages/Admin/AddPackage";
+import ManageUsers from "../Pages/Admin/ManageUsers";
+import GuideProfile from "../Pages/Guide/GuideProfile";
+import AssignedTours from "../Pages/Guide/AssignedTours";
 
 const Router = createBrowserRouter([
     {
         path: "/",
-        element: <h2>this is home</h2>
+        element: <HomeLayout></HomeLayout>,
+        children: [
+            {
+                path: "/",
+                element: <Home></Home>,
+            },
+            {
+                path: "/community",
+                element: <Community></Community>,
+            },
+            {
+                path: "/about",
+                element: <AboutUs></AboutUs>,
+            },
+            {
+                path: "/trips",
+                element: <Trips></Trips>
+            },
+            {
+                path: "/package/:_id",
+                element: <PrivateRoute><PackageDetails></PackageDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/package/${params._id}`),
+            }
+        ],
     },
+
     {
         path: "/auth",
-        element: <div className="">
-            <button className="btn bg-[#0967C2] text-white border-[#0059b3]">
-                <svg aria-label="LinkedIn logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="white" d="M26.111,3H5.889c-1.595,0-2.889,1.293-2.889,2.889V26.111c0,1.595,1.293,2.889,2.889,2.889H26.111c1.595,0,2.889-1.293,2.889-2.889V5.889c0-1.595-1.293-2.889-2.889-2.889ZM10.861,25.389h-3.877V12.87h3.877v12.519Zm-1.957-14.158c-1.267,0-2.293-1.034-2.293-2.31s1.026-2.31,2.293-2.31,2.292,1.034,2.292,2.31-1.026,2.31-2.292,2.31Zm16.485,14.158h-3.858v-6.571c0-1.802-.685-2.809-2.111-2.809-1.551,0-2.362,1.048-2.362,2.809v6.571h-3.718V12.87h3.718v1.686s1.118-2.069,3.775-2.069,4.556,1.621,4.556,4.975v7.926Z" fillRule="evenodd"></path></svg>
-                Login with LinkedIn
-            </button>
-        </div>
+        element: <AuthLayout></AuthLayout>,
+        children: [
+            {
+                path: "/auth/login",
+                element: <Login></Login>,
+            },
+            {
+                path: "/auth/register",
+                element: <Register></Register>,
+            }
+        ]
+    },
+    {
+        path: "/dashboard",
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        children: [
+            // tourist
+            {
+                path: '/dashboard/profile',
+                element: <Profile></Profile>,
+            },
+            {
+                path: '/dashboard/bookings',
+                element: <MyBooking></MyBooking>
+            },
+            {
+                path: '/dashboard/add-story',
+                element: <AddStories></AddStories>
+            },
+            {
+                path: '/dashboard/manage-stories',
+                element: <ManageStories></ManageStories>
+            },
+            {
+                path: '/dashboard/join-guide',
+                element: <Joinastourguide></Joinastourguide>
+            },
+
+            // Admin
+            {
+                path: '/dashboard/admin-profile',
+                element: <AdminProfile></AdminProfile>
+            },
+            {
+                path: '/dashboard/manage-candidates',
+                element: <ManageCandidates></ManageCandidates>
+            },
+            {
+                path: '/dashboard/add-package',
+                element: <AddPackage></AddPackage>
+
+            },
+            {
+                path: '/dashboard/manage-users',
+                element: <ManageUsers></ManageUsers>
+            },
+
+            // Guide
+            {
+                path: '/dashboard/guide-profile',
+                element: <GuideProfile></GuideProfile>
+            },
+            {
+                path: '/dashboard/assigned-tours',
+                element: <AssignedTours></AssignedTours>
+            },
+        ]
     },
     {
         path: "*",

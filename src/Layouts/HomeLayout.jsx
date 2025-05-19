@@ -1,16 +1,21 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import Navbar from '../Components/Navbar'
+import Footer from '../Components/Footer'
 
 function HomeLayout() {
   return (
     <div>
-        <header></header>
-
-        <div className="">
+        <header>
+          <Navbar></Navbar>
+        </header>
+        <div className="mt-5">
             <Outlet></Outlet>
         </div>
 
-        <footer></footer>
+        <footer>
+          <Footer></Footer>
+        </footer>
     </div>
   )
 }
