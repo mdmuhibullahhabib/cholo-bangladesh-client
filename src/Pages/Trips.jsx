@@ -5,12 +5,6 @@ import usePackage from "../hooks/usePackage";
 
 const Trips = () => {
       const [packages ] = usePackage()
-    
-        //   "_id": "1",
-        //   "title": "Sundarbans Wildlife Adventure",
-        //   "image": "https://i.ibb.co/Qcq6svj/sundarbans.jpg",
-        //   "type": "Wildlife",
-        //   "price": 120
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">

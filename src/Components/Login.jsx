@@ -1,8 +1,7 @@
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import React, { useEffect, useRef } from 'react'
 import { useContext, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { FaGoogle } from "react-icons/fa";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from '../Provider/Authprovider';
 import Swal from 'sweetalert2';
 import SocialLogin from './SocialLogin';
@@ -94,9 +93,12 @@ const Login = () => {
         <button type="button" onClick={handleReset} className="text-sm text-blue-500 underline">
           Forgot Password?
         </button>
+                  <p className="text-sm mt-2 text-center" >Dont’t Have An Account ? <Link to="/auth/register" className='text-red-500'>Register</Link></p>
       </form>
       <div className="divider">OR</div>
-    <SocialLogin></SocialLogin>
+
+     <SocialLogin ></SocialLogin>
+
     </div>
   );
 };

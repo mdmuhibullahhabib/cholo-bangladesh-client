@@ -22,6 +22,7 @@ import AddPackage from "../Pages/Admin/AddPackage";
 import ManageUsers from "../Pages/Admin/ManageUsers";
 import GuideProfile from "../Pages/Guide/GuideProfile";
 import AssignedTours from "../Pages/Guide/AssignedTours";
+import Payment from "../Pages/Tourist/Payment";
 
 const Router = createBrowserRouter([
     {
@@ -78,6 +79,10 @@ const Router = createBrowserRouter([
             {
                 path: '/dashboard/bookings',
                 element: <MyBooking></MyBooking>
+            },
+            {
+                path: '/dashboard/payment',
+                element: <Payment></Payment>
             },
             {
                 path: '/dashboard/add-story',

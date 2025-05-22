@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/Authprovider';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import useUserdata from '../../hooks/useUserdata';
 
 const Joinastourguide = () => {
   const { user } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure()
-
+  const [userData] = useUserdata()
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -15,6 +17,7 @@ const Joinastourguide = () => {
     const cvLink = form.cv.value;
 
     const application = {
+      applyId: userData._id,
       title,
       motivation,
       cvLink,

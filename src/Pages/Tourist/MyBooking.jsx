@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Provider/Authprovider';
 import useBooked from '../../hooks/useBooked';
@@ -11,7 +10,7 @@ const MyBooking = () => {
     const axiosSecure = useAxiosSecure()
     // const [bookings, setBookings] = useState([]);
     const [bookings, refetch] = useBooked()
-
+    console.log(bookings)
     const handleCancel = id => {
         Swal.fire({
             title: 'Are you sure?',
@@ -33,6 +32,7 @@ const MyBooking = () => {
         });
     };
 
+
     return (
         <div className="overflow-x-auto">
             <h2 className="text-2xl font-bold mb-4">My Bookings</h2>
@@ -53,30 +53,41 @@ const MyBooking = () => {
                         <tr key={booking._id}>
                             <td>{index + 1}</td>
                             <td>{booking.packageName}</td>
-                            <td>{booking.guideName}</td>
+                            <td>{booking.tourGuideName}</td>
                             <td>{booking.tourDate}</td>
                             <td>${booking.price}</td>
                             <td className="capitalize">{booking.status}</td>
                             <td className="space-x-2">
-                                {booking.status === 'pending' && (
-                                    <>
-                                        <Link to={`/dashboard/payment/${booking._id}`}>
-                                            <button className="btn px-5 mb-1 btn-sm btn-success">Pay</button>
-                                        </Link>
-                                        <button
-                                            onClick={() => handleCancel(booking._id)}
-                                            className="btn btn-sm btn-error"
+                                {booking.status === 'pending' ? <>
+                                        <Link
+                                            to="/dashboard/payment"
+                                            state={{ 
+                                           id: booking._id,
+                                           price: booking.price,
+                                           menuId: booking.menuId, 
+                                           packageName: booking.packageName, 
+                                           tourGuideName: booking.tourGuideName, 
+                                             tourDate: booking.tourDate,
+                                             }}
                                         >
-                                            Cancel
-                                        </button>
-                                    </>
-                                )}
-                            </td>
-                        </tr>
+                                <button className="btn px-5 mb-1 btn-sm btn-success">Pay</button>
+                            </Link>
+                            <button
+                                onClick={() => handleCancel(booking._id)}
+                                className="btn btn-sm btn-error"
+                            >
+                                Cancel
+                            </button>
+                        </> :  <> 
+                        <h2 className="font-bold text-green-600"> Payment Successful </h2> 
+                        </>
+                    }
+                </td>
+            </tr>
                     ))}
-                </tbody>
-            </table>
-        </div>
+        </tbody>
+            </table >
+        </div >
     );
 };
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Select from 'react-select';
 import { FaSearch, FaTrashAlt, FaUsers } from 'react-icons/fa';
 import { useQuery } from '@tanstack/react-query'

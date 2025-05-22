@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 import { useQuery } from '@tanstack/react-query'
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const ManageCandidates = () => {
   const axiosSecure = useAxiosSecure()
-  // const [applications, setApplications] = useState([]);
-  
-
-    const { data: applications = [], refetch } = useQuery({
+  const { data: applications = [], refetch } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
       const res = await axiosSecure.get('/guide/application')
@@ -17,25 +14,49 @@ const ManageCandidates = () => {
     }
   })
 
-  const handleAccept = async (userId, applicationId) => {
-    try {
-      // Update role
-      await axios.patch(`/api/users/${userId}`, { role: 'tour-guide' });
-      // Delete application
-      await axios.delete(`/api/applications/${applicationId}`);
-      fetchApplications(); // Refresh list
-    } catch (err) {
-      console.error('Error accepting candidate', err);
-    }
+  const handleAccept = (app) => {
+    console.log(app)
+    Swal.fire({
+      title: "Are you sure?",
+      text: `Can you make guide this user!`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: `Yes, make Guide!`
+    }).then((result) => {
+      if (result.isConfirmed) {
+          axiosSecure.patch(`/users/guide/${app.applyId}`, { role: 'guide' })
+          .then(res => {
+            axiosSecure.delete(`/guide/application/${app._id}`)
+            refetch();
+            if (res.data.modifiedCound > 0) {
+              Swal.fire('Success', `Succesfully add to guide.`, 'success');
+            }
+          })
+      }
+    }); 
   };
 
-  const handleReject = async (applicationId) => {
-    try {
-      await axios.delete(`/api/applications/${applicationId}`);
-      fetchApplications(); // Refresh list
-    } catch (err) {
-      console.error('Error rejecting candidate', err);
-    }
+  const handleReject = (id) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You want to Reject this User?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Reject it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/guide/application/${id}`)
+          .then(res => {
+            refetch()
+            console.log(res)
+            if (res.data.deletedCount > 0) {
+              Swal.fire('Rejected!', 'Your User has been Delete.', 'success');
+            }
+          });
+      }
+    });
   };
 
   return (
@@ -79,7 +100,7 @@ const ManageCandidates = () => {
                   <td className="flex gap-2">
                     <button
                       className="btn btn-success btn-xs"
-                      onClick={() => handleAccept(app.userId, app._id)}
+                      onClick={() => handleAccept(app)}
                     >
                       <FaCheckCircle className="mr-1" />
                       Accept

@@ -36,10 +36,10 @@ const SocialLogin = () => {
     };
 
     return (
-        <div className="text-center mt-4">
+        <div className="text-center ml-16 mt-4">
             <button
                 onClick={handleGoogleSignIn}
-                className="btn btn-outline btn-wide flex items-center justify-center gap-2"
+                className="btn btn-center btn-outline btn-wide flex items-center justify-center gap-2"
             >
                 <FcGoogle className="text-2xl" />
                 Sign in with Google
