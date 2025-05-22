@@ -63,7 +63,14 @@ const CheckOutForm = ({ id, price, menuId, packageName, tourGuideName, tourDate 
       console.log('Payment Intent', paymentIntent);
       if (paymentIntent.status === 'succeeded') {
         setTransactionId(paymentIntent.id);
-
+              Swal.fire({
+                icon: 'success',
+                title: 'Payment Successful!',
+                text: 'Thank you for your payment. Your booking has been in-review.',
+                confirmButtonColor: '#3085d6',
+                timer: 1500,
+                showConfirmButton: false,
+              });
         // Optional: Save payment info to DB or update booking status
         const paymentInfo = {
           name: user?.displayName,
@@ -80,20 +87,12 @@ const CheckOutForm = ({ id, price, menuId, packageName, tourGuideName, tourDate 
 
         axiosSecure.patch(`/booked/${id}`)
           .then(res => {
-            refetch()
             console.log(res)
           });
         axiosSecure.post('/payment', paymentInfo)
           .then(res => {
             if (res.data.insertedId) {
-              Swal.fire({
-                icon: 'success',
-                title: 'Payment Successful!',
-                text: 'Thank you for your payment. Your booking has been in-review.',
-                confirmButtonColor: '#3085d6',
-                timer: 1500,
-                showConfirmButton: false,
-              });
+
             }
             // Handle success
           });
