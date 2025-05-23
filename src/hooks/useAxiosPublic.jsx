@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react'
 
  const axiosPublic = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://tourism-management-server-liard-zeta.vercel.app'
 })
 
 const useAxiosPublic = () => {

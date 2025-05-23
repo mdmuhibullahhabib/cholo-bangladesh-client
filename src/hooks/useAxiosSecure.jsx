@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Provider/Authprovider'
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:5000'
+  baseURL: 'https://tourism-management-server-liard-zeta.vercel.app'
 })
 
 const useAxiosSecure = () => {
@@ -30,7 +30,6 @@ const useAxiosSecure = () => {
     await logOut()
     return Promise.reject(error);
   })
-
   return axiosSecure
 }
 

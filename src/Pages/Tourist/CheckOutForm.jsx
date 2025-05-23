@@ -13,7 +13,7 @@ const CheckOutForm = ({ id, price, menuId, packageName, tourGuideName, tourDate 
   const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
 
-  console.log(price, menuId, id)
+  // console.log(price, menuId, id)
 
   useEffect(() => {
     if (price > 0) {
@@ -60,7 +60,7 @@ const CheckOutForm = ({ id, price, menuId, packageName, tourGuideName, tourDate 
     if (confirmError) {
       setError(confirmError.message);
     } else {
-      console.log('Payment Intent', paymentIntent);
+      // console.log('Payment Intent', paymentIntent);
       if (paymentIntent.status === 'succeeded') {
         setTransactionId(paymentIntent.id);
               Swal.fire({
@@ -84,9 +84,9 @@ const CheckOutForm = ({ id, price, menuId, packageName, tourGuideName, tourDate 
           menuId,
           ststus: 'in-review'
         };
-
         axiosSecure.patch(`/booked/${id}`)
           .then(res => {
+
             console.log(res)
           });
         axiosSecure.post('/payment', paymentInfo)

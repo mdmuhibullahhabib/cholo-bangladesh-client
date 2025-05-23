@@ -5,7 +5,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/Authprovider";
-import axios from "axios";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import useBooked from "../hooks/useBooked";
 
@@ -44,6 +43,7 @@ const PackageDetails = () => {
         tourGuideName: selectedGuide,
         status: "pending",
       };
+      console.log(bookingData)
       axiosSecure.post('/booked', bookingData)
         .then(res => {
           console.log(res.data)
