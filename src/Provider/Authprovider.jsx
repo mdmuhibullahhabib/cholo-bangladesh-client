@@ -16,6 +16,7 @@ const Authprovider = ({ children }) => {
   console.log(user, loading)
 
   const signInWithGoogle = () => {
+        setLoading(true)
     return signInWithPopup(auth, provider)
   }
 
@@ -28,7 +29,7 @@ const Authprovider = ({ children }) => {
     return updateProfile(auth.currentUser, updatedData);
   };
 
-  const signIn = (email, password)=>{
+  const signIn = ( email, password )=>{
     setLoading(true)
     return signInWithEmailAndPassword(auth, email, password)
   }

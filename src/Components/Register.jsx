@@ -25,7 +25,7 @@ const Register = () => {
     const password = form.password.value;
 
     const userData = { name, email, image }
-    console.log(user, userData)
+    // console.log(user, userData)
     setError('');
     if (password.length < 5) {
       setError("Must be more the 5 character long");

@@ -13,7 +13,7 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const { signIn, setUser } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
 
   const captchaRef = useRef(null)
   const [disable, setDisable] = useState(true);
@@ -42,7 +42,6 @@ const Login = () => {
     signIn(email, password)
       .then(result => {
         const user = result.user;
-        setUser(user)
         navigate(location?.state ? location.state : "/")
         Swal.fire({
           title: "Login Successfully!",
@@ -59,16 +58,14 @@ const Login = () => {
           draggable: true
         })
       });
-
   };
-
 
   const handleReset = () => {
     const email = prompt("Enter your email to reset password:");
     if (email) {
       resetPassword(email)
-        .then(() => alert("Check your email for reset link"))
-        .catch(err => alert("Failed to send reset email"));
+        .then(() => {
+        })
     }
   };
 
