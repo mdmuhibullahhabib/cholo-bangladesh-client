@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { FacebookShareButton } from 'react-share';
@@ -7,10 +7,14 @@ import { FaUserCheck, FaHandshake, FaWallet, FaHeadset, FaMapMarkedAlt } from "r
 import SectionTitle from './SectionTitle';
 import OurPackages from './OurPackages';
 import OurGuide from './OurGuide';
+import { AuthContext } from '../Provider/Authprovider';
+import TouristStorySection from './TouristStorySection';
 
 function Travel({ story, isLoggedIn }) {
 
     const navigate = useNavigate();
+    const {user} = useContext(AuthContext)
+
 
     const handleShare = () => {
         if (!isLoggedIn) {
@@ -97,7 +101,8 @@ function Travel({ story, isLoggedIn }) {
                 heading={"Traveler Stories"}
                 subheading={"Real journeys. Real people. Discover unforgettable memories shared by travelers who explored the heart of Bangladesh."}
                 ></SectionTitle>
-                <figure><img src={story?.image} alt={story?.title} /></figure>
+                <TouristStorySection></TouristStorySection>
+                {/* <figure><img src={story?.image} alt={story?.title} /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{story?.title}</h2>
                     <p>{story?.snippet}</p>
@@ -110,7 +115,7 @@ function Travel({ story, isLoggedIn }) {
                             <button className="btn btn-outline btn-primary">Share</button>
                         </FacebookShareButton>
                     </div>
-                </div>
+                </div> */}
             </section>
             {/* Top Destinations */}
             <section className="my-20 px-4 max-w-7xl mx-auto">

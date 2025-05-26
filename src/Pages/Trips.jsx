@@ -7,7 +7,7 @@ const Trips = () => {
       const [packages ] = usePackage()
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10">
+    <div className="max-w-6xl mt-12 mx-auto px-4 py-10">
       <h1 className="text-4xl font-bold text-center text-primary mb-10">
         All Tour Packages
       </h1>

@@ -5,7 +5,7 @@ import Travel from '../Components/Travel'
 
 function Home() {
   return (
-    <div>
+    <div className='mt-6'>
         <Banner></Banner>
 
         <Overview></Overview>

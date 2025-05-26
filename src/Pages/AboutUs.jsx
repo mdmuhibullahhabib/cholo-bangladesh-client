@@ -3,7 +3,7 @@ import { FaMapMarkedAlt, FaPeopleCarry, FaRoute } from "react-icons/fa";
 
 const AboutUs = () => {
   return (
-    <div className="bg-white py-12 px-4 md:px-8">
+    <div className="bg-white py-12 mt-12 px-4 md:px-8">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold text-center text-primary mb-6">
           About Cholo Bangladesh
