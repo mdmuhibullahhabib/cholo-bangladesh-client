@@ -48,7 +48,7 @@ const Router = createBrowserRouter([
             {
                 path: "/package/:_id",
                 element: <PrivateRoute><PackageDetails></PackageDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://tourism-management-server-liard-zeta.vercel.app/package/${params._id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/package/${params._id}`),
             }
         ],
     },

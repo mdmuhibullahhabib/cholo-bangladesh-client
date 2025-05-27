@@ -8,7 +8,7 @@ const OurPackages = () => {
 
 
       useEffect(() => {
-        fetch('https://tourism-management-server-liard-zeta.vercel.app/random-packages')
+        fetch('http://localhost:5000/random-packages')
           .then(res => res.json())
           .then(data => setPackages(data))
       }, []);

@@ -3,7 +3,7 @@ import { FacebookShareButton, FacebookIcon } from 'react-share';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Provider/Authprovider';
-import useAxiosSecure from '../hooks/useAxiosSecure';
+import useAxiosPublic from '../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 
 
@@ -16,13 +16,13 @@ const formatDate = (isoDate) => {
 const TouristStorySection = () => {
     const navigate = useNavigate();
     const { user } = useContext(AuthContext);
-    const axiosSecure = useAxiosSecure()
+    const axiosPublic = useAxiosPublic()
 
 
         const { data: stories = [], refetch } = useQuery({
             queryKey: ['story'],
             queryFn: async () => {
-                const res = await axiosSecure.get('/story-random')
+                const res = await axiosPublic.get('/story-random')
                 return res.data;
             }
         })
