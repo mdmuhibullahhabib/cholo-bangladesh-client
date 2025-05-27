@@ -48,7 +48,7 @@ const Router = createBrowserRouter([
             {
                 path: "/package/:_id",
                 element: <PrivateRoute><PackageDetails></PackageDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/package/${params._id}`),
+                loader: ({ params }) => fetch(`https://tourism-management-server-5ts035kx5-muhibullah-habibs-projects.vercel.app/package/${params._id}`),
             }
         ],
     },

@@ -8,7 +8,7 @@ const OurPackages = () => {
 
 
       useEffect(() => {
-        fetch('http://localhost:5000/random-packages')
+        fetch('https://tourism-management-server-5ts035kx5-muhibullah-habibs-projects.vercel.app/random-packages')
           .then(res => res.json())
           .then(data => setPackages(data))
       }, []);
