@@ -63,7 +63,7 @@ const AddPackage = () => {
       tourPlan,
       guides,
     };
-    console.log(newPackage)
+    // console.log(newPackage)
     const res = await axiosSecure.post("/package", newPackage);
     if (res.data.insertedId) {
       Swal.fire("Success!", "Package added successfully!", "success");

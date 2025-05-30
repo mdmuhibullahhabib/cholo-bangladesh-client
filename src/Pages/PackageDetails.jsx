@@ -33,15 +33,15 @@ const PackageDetails = () => {
 
     if (user && user.email) {
       const bookingData = {
-        menuId: _id,
-        packageName: title,
-        name: user?.displayName,
-        email: user?.email,
-        image: user?.photoURL,
-        price: price,
-        tourDate: startDate,
-        tourGuideName: selectedGuide,
-        status: "pending",
+        menuId:_id,
+        packageName:title,
+        name:user?.displayName,
+        email:user?.email,
+        image:user?.photoURL,
+        price:price,
+        tourDate:startDate,
+        tourGuideName:selectedGuide,
+        status:"pending",
       };
       console.log(bookingData)
       axiosSecure.post('/booked', bookingData)

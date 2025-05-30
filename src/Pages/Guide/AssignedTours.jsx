@@ -17,6 +17,7 @@ const AssignedTours = () => {
       return res.data;
     }
   });
+  console.log(assignedTours)
 
     // Accept tour by menuId
   const handleAccept = async (menuId) => {

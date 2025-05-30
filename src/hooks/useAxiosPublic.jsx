@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react'
 
  const axiosPublic = axios.create({
-    baseURL: 'https://tourism-management-server-5ts035kx5-muhibullah-habibs-projects.vercel.app'
+    baseURL: 'https://tourism-management-server-ten.vercel.app'
 })
 
 const useAxiosPublic = () => {

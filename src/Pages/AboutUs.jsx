@@ -15,7 +15,7 @@ const AboutUs = () => {
         <div className="grid md:grid-cols-2 gap-10 items-center mb-14">
           <div>
             <img
-              src="https://i.ibb.co/3T3RmvT/tour-bg.jpg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ90zvGNZpq4VjWheDODwDsS0X5uhrOd15PBBO1f07koWpbrOCwOGE1G_0HfkBdHX29KnE&usqp=CAU"
               alt="Tour Bangladesh"
               className="rounded-2xl shadow-lg w-full"
             />

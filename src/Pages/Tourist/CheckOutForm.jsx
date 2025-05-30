@@ -84,6 +84,7 @@ const CheckOutForm = ({ id, price, menuId, packageName, tourGuideName, tourDate 
           menuId,
           ststus: 'in-review'
         };
+        console.log(paymentInfo)
         axiosSecure.patch(`/booked/${id}`)
           .then(res => {
 

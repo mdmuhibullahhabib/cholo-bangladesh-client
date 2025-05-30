@@ -7,7 +7,6 @@ import useUserdata from '../../hooks/useUserdata';
 import { FaEdit } from 'react-icons/fa';
 import usePackage from '../../hooks/usePackage';
 import useGuide from '../../hooks/useGuide';
-import useBooked from '../../hooks/useBooked';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 
@@ -18,13 +17,12 @@ const AdminProfile = () => {
   const axiosSecure = useAxiosSecure();
   const [packages] = usePackage();
   const [guides] = useGuide();
-  const [bookings, refetch] = useBooked();
   const [userData] = useUserdata()
 
   const { data: stories = [] } = useQuery({
     queryKey: ['story'],
     queryFn: async () => {
-      const res = await axiosSecure.get('/story')
+      const res = await axiosSecure.get('/stories')
       return res.data;
     }
   })
@@ -46,7 +44,7 @@ const AdminProfile = () => {
         <div className="p-4 bg-base-200 rounded shadow">Total Payment: ${totalAmount || 0}</div>
         <div className="p-4 bg-base-200 rounded shadow">Tour Guides: {guides.length || 0}</div>
         <div className="p-4 bg-base-200 rounded shadow">Packages: {packages.length || 0}</div>
-        <div className="p-4 bg-base-200 rounded shadow">Clients: {bookings.length || 0}</div>
+        <div className="p-4 bg-base-200 rounded shadow">Clients: {totalPayment.length || 0}</div>
         <div className="p-4 bg-base-200 rounded shadow col-span-2 md:col-span-1">Stories: {stories.length || 0}</div>
       </div>
 

@@ -1,5 +1,5 @@
-import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
-import React, { useEffect, useRef } from 'react'
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+import React, { useEffect } from 'react'
 import { useContext, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from '../Provider/Authprovider';
@@ -15,19 +15,17 @@ const Login = () => {
 
   const { signIn } = useContext(AuthContext);
 
-  const captchaRef = useRef(null)
   const [disable, setDisable] = useState(true);
 
   useEffect(() => {
     loadCaptchaEnginge(6);
-  })
+  },[])
 
-  const handleCaptcha = () => {
-    const value = captchaRef.current.value
-
-    if (validateCaptcha(value)) {
-      setDisable(false)
-    }
+  const handleValidateCaptcha = (e) => {
+   const user_captcha_value = e.target.value;
+        if (validateCaptcha(user_captcha_value)) {
+            setDisable(false);
+        }
     else {
       setDisable(true)
     }
@@ -79,14 +77,12 @@ const Login = () => {
           <label>
             <LoadCanvasTemplate />
           </label>
-          {/* <input type="text" ref={captchaRef} name="captcha" placeholder="Type the captcha above" className="input input-bordered w-full" required />
-          <button onClick={handleCaptcha} className="mt-2 btn btn-outline btn-xs">
-            Validate
-          </button> */}
+          {/* <input type="text" ref={captchaRef} name="captcha" placeholder="Type the captcha above" className="input input-bordered w-full" required /> */}
+          <input onBlur={handleValidateCaptcha} type="text" name="captcha" placeholder="type the captcha above" className="input input-bordered" />
+
         </div>
-        {/* disabled={disable} */}
-        {error && <p className="text-red-500 text-sm">{error}</p>}
-        <button className="btn btn-primary w-full">Login</button>
+       
+        <button  disabled={disable}  className="btn btn-primary w-full">Login</button>
         <button type="button" onClick={handleReset} className="text-sm text-blue-500 underline">
           Forgot Password?
         </button>

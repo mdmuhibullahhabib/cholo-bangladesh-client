@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const OurGuide = () => {
   const [allGuides, setGuide]=useState([]);
   useEffect(()=>{
-    fetch('https://tourism-management-server-5ts035kx5-muhibullah-habibs-projects.vercel.app/users/guides')
+    fetch('https://tourism-management-server-ten.vercel.app/users/guides')
     .then(res =>res.json())
     .then(data => {
       setGuide(data)
