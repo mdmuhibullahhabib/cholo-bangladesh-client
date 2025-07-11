@@ -3,19 +3,19 @@ import { AuthContext } from '../Provider/Authprovider'
 import { Navigate, useLocation } from 'react-router-dom';
 
 const PrivateRoute = ({ children }) => {
-    const { user, loading} = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
     const location = useLocation()
-    if(loading){
+    if (loading) {
         return (
             <div className="text-center mt-10"> <span className="loading loading-dots loading-md"></span>
-<span className="loading loading-dots loading-lg"></span>
-<span className="loading loading-dots loading-xl"></span></div>
-)
+                <span className="loading loading-dots loading-lg"></span>
+                <span className="loading loading-dots loading-xl"></span></div>
+        )
     }
     if (user) {
         return children;
     }
-    return <Navigate state={location.pathname} ></Navigate>
+    return <Navigate state={location.pathname}  ></Navigate>
 }
 
 export default PrivateRoute
