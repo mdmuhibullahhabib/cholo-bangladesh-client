@@ -37,7 +37,7 @@ const Community = () => {
   }
 
   return (
-    <div className="bg-gradient-to-br from-[#fdfcfb] via-[#eae8e1] to-[#f4f1ed] min-h-screen px-4 py-16">
+    <div className="bg-gradient-to-br from-[#e0f7fa] to-[#ffffff] min-h-screen px-4 py-16">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
