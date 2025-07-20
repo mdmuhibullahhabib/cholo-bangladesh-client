@@ -39,7 +39,7 @@ const TouristStorySection = () => {
 
         return (
             <section className="max-w-6xl mx-auto px-4 py-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                     {stories.map((story) => (
                         <div key={story._id.$oid || story._id} className="bg-base-100 p-6 rounded-xl shadow-md space-y-4">
                             {story.image && (

@@ -4,21 +4,24 @@ import { Link } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 
 const OurPackages = () => {
-    const [packages, setPackages] = useState([]);
+  const [packages, setPackages] = useState([]);
 
 
-      useEffect(() => {
-        fetch('https://tourism-management-server-ten.vercel.app/random-packages')
-          .then(res => res.json())
-          .then(data => setPackages(data))
-      }, []);
-      
+  useEffect(() => {
+    fetch('https://tourism-management-server-ten.vercel.app/random-packages')
+      .then(res => res.json())
+      .then(data => setPackages(data))
+  }, []);
+
   return (
     <div className="grid md:grid-cols-3 gap-6 p-4">
       {packages?.map((pkg) => (
         <div key={pkg._id} className="card bg-base-100 shadow-xl">
           <figure>
-            <img src={pkg.image} alt={pkg.title} className="h-60 w-full object-cover" />
+            <img
+              src={pkg.images?.[0] || "https://via.placeholder.com/400x250?text=No+Image"}
+              alt={pkg.title}
+              className="h-60 w-full object-cover" />
           </figure>
           <div className="card-body">
             <h2 className="card-title text-xl text-green-600">{pkg.title}</h2>
