@@ -24,7 +24,7 @@ const PackageDetails = () => {
   const axiosSecure = useAxiosSecure()
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
   const [startDate, setStartDate] = useState(new Date());
   const [selectedGuide, setSelectedGuide] = useState(guides?.[0] || "");
 
