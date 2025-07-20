@@ -5,7 +5,7 @@ import Travel from '../Components/Travel'
 
 function Home() {
   return (
-    <div className='mt-6'>
+    <div>
         <Banner></Banner>
 
         <Overview></Overview>
@@ -15,4 +15,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Home;

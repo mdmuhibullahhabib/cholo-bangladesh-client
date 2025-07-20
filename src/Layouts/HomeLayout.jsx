@@ -9,7 +9,7 @@ function HomeLayout() {
         <header>
           <Navbar></Navbar>
         </header>
-        <div className="mt-5">
+        <div className="">
             <Outlet></Outlet>
         </div>
 
