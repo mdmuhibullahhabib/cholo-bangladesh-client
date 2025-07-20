@@ -68,8 +68,8 @@ function Travel({ story, isLoggedIn }) {
     ];
 
     return (
-        <div className="bg-gradient-to-br from-[#e0f2f1] via-[#fffde7] to-[#ffe0b2]">
-            <section className="mt-16 max-w-6xl mx-auto px-4">
+        <div className="pb-5 bg-gradient-to-br from-[#e0f2f1] via-[#fffde7] to-[#ffe0b2]">
+            <section className=" max-w-6xl mx-auto px-4">
                 <SectionTitle
                     heading={"Tourism & Travel Guide"}
                     subheading={"Your ultimate companion for discovering tours, meeting expert guides, and planning the perfect trip across Bangladesh."}
