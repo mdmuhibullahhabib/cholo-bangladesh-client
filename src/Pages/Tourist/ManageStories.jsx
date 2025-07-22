@@ -47,7 +47,7 @@ const ManageStories = () => {
             <p>{story.text}</p>
 
              <div className="flex flex-wrap gap-2 my-3">
-              <img  src={story.img} alt="story" className="w-20 h-20 object-cover rounded" />
+              <img  src={story.image} alt="story" className="w-20 h-20 object-cover rounded" />
           </div>
 
             <div className="card-actions justify-between mt-4">
