@@ -18,7 +18,6 @@ const ManageStories = () => {
       return res.data;
     }
   })
-  console.log(stories)
   const handleDelete = (id) => {
     Swal.fire({
       title: 'Are you sure?',
