@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 
 const OurGuide = () => {
-  const [allGuides, setGuide]=useState([]);
-  useEffect(()=>{
+  const [allGuides, setGuide] = useState([]);
+
+  useEffect(() => {
     fetch('https://tourism-management-server-ten.vercel.app/users/guides')
-    .then(res =>res.json())
-    .then(data => {
-      setGuide(data)
-    })
-  },[])
-  console.log(allGuides)
+      .then(res => res.json())
+      .then(data => {
+        setGuide(data);
+      });
+  }, []);
 
   // Random 6 guides
   const guides = allGuides.sort(() => 0.5 - Math.random()).slice(0, 6);
@@ -24,14 +24,14 @@ const OurGuide = () => {
           </figure>
           <div className="card-body items-center text-center">
             <h2 className="card-title">{guide.name}</h2>
-            <p><strong>Experience:</strong> {guide.experience}</p>
-            <p><strong>Specialty:</strong> {guide.specialty}</p>
-            <p><strong>Language:</strong> {guide.language}</p>
-            <div className="card-actions mt-4">
+            <p><strong>Experience:</strong> {guide.experience || "2 years"}</p>
+            <p><strong>Specialty:</strong> {guide.specialty || "General Tour Guide"}</p>
+            <p><strong>Language:</strong> {guide.language || "Bangla, English"}</p>
+            {/* <div className="card-actions mt-4">
               <Link to={`/guide-details/${guide._id}`} className="btn btn-outline btn-primary">
                 View Details
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       ))}
@@ -39,4 +39,4 @@ const OurGuide = () => {
   );
 };
 
-export default OurGuide
+export default OurGuide;
