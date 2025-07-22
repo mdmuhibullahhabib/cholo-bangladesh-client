@@ -23,6 +23,7 @@ import ManageUsers from "../Pages/Admin/ManageUsers";
 import GuideProfile from "../Pages/Guide/GuideProfile";
 import AssignedTours from "../Pages/Guide/AssignedTours";
 import Payment from "../Pages/Tourist/Payment";
+import Error from "../Pages/Error";
 
 const Router = createBrowserRouter([
     {
@@ -129,7 +130,7 @@ const Router = createBrowserRouter([
     },
     {
         path: "*",
-        element: <h2>this is error</h2>
+        element: <Error></Error>
     },
 ])
 
