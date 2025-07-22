@@ -9,19 +9,18 @@ const Footer = () => {
 
         {/* Logo & Site Name */}
         <div className="flex items-center gap-3 justify-center md:justify-start">
-          <img src="/logo.png" alt="Logo" className="w-10 h-10" />
-          <span className="text-xl font-bold text-primary">Cholo Bangladesh</span>
+          <img src="https://i.ibb.co/LD39PLby/Chat-GPT-Image-Jul-22-2025-05-32-22-PM-removebg-preview.png" alt="Logo" className="w-30 h-15" />
         </div>
 
         {/* Social Links */}
         <div className="flex justify-center gap-6 text-2xl">
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
             <FaGithub />
           </a>
-          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+          <a href="https://linkedin.com/in" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
             <FaLinkedin />
           </a>
-          <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
             <FaTwitter />
           </a>
         </div>

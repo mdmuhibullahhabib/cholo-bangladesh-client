@@ -51,7 +51,7 @@ const Navbar = () => {
         {/* Logo + Website Name */}
         <div className="flex-1">
           <Link to="/" className="flex items-center gap-2 text-xl font-bold text-primary">
-            Cholo Bangladesh
+            <img className="w-30 h-15" src="https://i.ibb.co/LD39PLby/Chat-GPT-Image-Jul-22-2025-05-32-22-PM-removebg-preview.png" alt="" />
           </Link>
         </div>
 
