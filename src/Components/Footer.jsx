@@ -9,7 +9,7 @@ const Footer = () => {
 
         {/* Logo & Site Name */}
         <div className="flex items-center gap-3 justify-center md:justify-start">
-          <img src="https://i.ibb.co/LD39PLby/Chat-GPT-Image-Jul-22-2025-05-32-22-PM-removebg-preview.png" alt="Logo" className="w-30 h-15" />
+          <img src="https://i.ibb.co/LD39PLby/Chat-GPT-Image-Jul-22-2025-05-32-22-PM-removebg-preview.png" alt="Logo" className="w-25 h-15" />
         </div>
 
         {/* Social Links */}
