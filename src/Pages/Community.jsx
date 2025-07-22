@@ -33,7 +33,10 @@ const Community = () => {
   };
 
   if (isLoading) {
-    return <div className="text-center py-10 text-xl font-medium">Loading stories...</div>;
+    return <div className="text-center py-10 text-xl font-medium">
+<span className="loading loading-dots loading-xl"></span>
+<span className="loading loading-dots loading-2xl"></span>
+<span className="loading loading-dots loading-4xl"></span></div>;
   }
 
   return (
@@ -45,7 +48,7 @@ const Community = () => {
           transition={{ duration: 0.6 }}
           className="text-4xl font-bold mb-4 text-center text-[#2c3e50]"
         >
-          🌏 Community Stories
+          All Stories
         </motion.h2>
 
         <motion.p
