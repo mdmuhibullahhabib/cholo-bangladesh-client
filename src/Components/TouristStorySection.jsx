@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { FacebookShareButton, FacebookIcon } from 'react-share';
 import { Link, useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import { AuthContext } from '../Provider/Authprovider';
 import useAxiosPublic from '../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
